@@ -12,10 +12,6 @@ const adapter = new FetchRequestAdapter(
   undefined,
   undefined,
   KiotaClientFactory.create((request, init) => {
-    // if (!window.fetch) {
-    //   throw new Error("fetch is not available");
-    // }
-
     return fetch(request, init);
   })
 );
@@ -31,5 +27,15 @@ client.weatherforecast
     },
   })
   .then((res) => {
-    console.log("Response from API:", res);
+    console.log("Response from API with x=Old:", res);
+  });
+
+client.weatherforecast
+  .get({
+    queryParameters: {
+      x: "New",
+    },
+  })
+  .then((res) => {
+    console.log("Response from API with x=New:", res);
   });
