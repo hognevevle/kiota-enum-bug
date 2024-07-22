@@ -12,7 +12,11 @@ const adapter = new FetchRequestAdapter(
   undefined,
   undefined,
   KiotaClientFactory.create((request, init) => {
-    return fetch(request, init);
+    return new Promise(async (resolve, reject) => {
+      const temp = await fetch(request, init);
+      console.log("Raw API response:", await temp.clone().json());
+      return resolve(temp);
+    });
   })
 );
 
@@ -27,7 +31,7 @@ client.weatherforecast
     },
   })
   .then((res) => {
-    console.log("Response from API with x=Old:", res);
+    console.log("Kiota deserialized API-response with x=Old:", res);
   });
 
 client.weatherforecast
