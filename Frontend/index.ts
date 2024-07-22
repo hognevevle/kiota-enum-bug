@@ -31,7 +31,7 @@ client.weatherforecast
     },
   })
   .then((res) => {
-    console.log("Kiota deserialized API-response with x=Old:", res);
+    console.log("Kiota-deserialized API-response with x=Old:", res);
   });
 
 client.weatherforecast
@@ -41,5 +41,5 @@ client.weatherforecast
     },
   })
   .then((res) => {
-    console.log("Kiota deserialized API-response with x=New:", res);
+    console.log("Kiota-deserialized API-response with x=New:", res);
   });
