@@ -41,5 +41,5 @@ client.weatherforecast
     },
   })
   .then((res) => {
-    console.log("Response from API with x=New:", res);
+    console.log("Kiota deserialized API-response with x=New:", res);
   });
